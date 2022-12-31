@@ -1,7 +1,21 @@
 .btn-primary{
-  background-color: #74ACDF;
+  background-color: #748ddf;
   color:#FFFFFF;
   font-weight: bolder;
   border:none;
 }
+
+.card{
+  background-color: #f1f4fe;
+}
+
+.btn:active:focus {
+  background-color:#233e96;
+}
+
+
+h2{
+  color:#233e96;
+}
+
 

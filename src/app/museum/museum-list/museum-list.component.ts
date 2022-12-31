@@ -28,4 +28,13 @@ export class MuseumListComponent implements OnInit {
     this.getMuseums();
   }
 
+  checkEmptyValue(value: string) {
+    if(value===""){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+
 }
