@@ -76,6 +76,7 @@ export class MuseumListComponent implements OnInit {
   getPreviousMuseum(museum:Museum){
     var currentMuseumIndex = this.getMuseumIndex(museum);
     this.currentMuseum = this.museums[currentMuseumIndex - 1]
+    this.currentMuseumIsLast = false;
     if(currentMuseumIndex - 1 === 0){
       this.currentMuseumIsFirst = true;
     }
