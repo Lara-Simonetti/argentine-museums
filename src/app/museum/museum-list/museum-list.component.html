@@ -1,15 +1,18 @@
 <div class="row">
-  <div class="col-sm-4" *ngFor="let museum of museums">
-    <div class="card">
+  <div class="col-md-8">
+    <h2>{{ currentMuseum.nombre }}</h2>
+    <div [innerHTML]="currentMuseum.descripcion"></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card" id="contactCard">
       <div class="card-body">
-        <h2 class="card-title">{{ museum.nombre }}</h2>
-        <p *ngIf="checkEmptyValue(museum.direccion), display: none"><strong>Dirección:</strong> {{ museum.direccion }}</p>
-        <p *ngIf="checkEmptyValue(museum.telefono)"><strong>Teléfono:</strong> {{ museum.telefono }}</p>
-        <p *ngIf="checkEmptyValue(museum.email)"><strong>Email:</strong> {{ museum.email }}</p>
-        <a href="{{ museum.link }}" class="btn btn-primary">Visita su sitio web</a>
+        <p *ngIf="checkEmptyValue(currentMuseum.direccion), display: none"><strong>Dirección:</strong> {{ currentMuseum.direccion }}</p>
+        <p *ngIf="checkEmptyValue(currentMuseum.telefono)"><strong>Teléfono:</strong> {{ currentMuseum.telefono }}</p>
+        <p *ngIf="checkEmptyValue(currentMuseum.email)"><strong>Email:</strong> {{ currentMuseum.email }}</p>
+        <a href="{{ currentMuseum.link }}" class="btn btn-primary">Visita su sitio web</a>
       </div>
     </div>
+    <a (click)="getNextMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el siguiente museo</a>
+    <a (click)="getPreviousMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el museo anterior</a>
   </div>
-
-<!--  <div class="card-text" [innerHTML]="museum.descripcion">
-  </div> -->
+</div>
