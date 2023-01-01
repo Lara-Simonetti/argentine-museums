@@ -14,6 +14,8 @@ export class MuseumListComponent implements OnInit {
   apiResults: ApiResults = {} as ApiResults;
   museums: Array<Museum> = [];
   currentMuseum: Museum = {} as Museum;
+  currentMuseumIsFirst: boolean = {} as boolean;
+  currentMuseumIsLast: boolean = false;
 
   constructor(private museumService: MuseumService) { }
 
@@ -22,6 +24,7 @@ export class MuseumListComponent implements OnInit {
       this.apiResults = apiResults;
       this.museums = this.apiResults.results;
       this.currentMuseum = this.museums[0];
+      this.currentMuseumIsFirst = true;
     });
   }
 
@@ -63,23 +66,18 @@ export class MuseumListComponent implements OnInit {
 
   getNextMuseum(museum:Museum){
     var currentMuseumIndex = this.getMuseumIndex(museum);
-    if(this.isLastMuseum(museum)){
-      return false
-    }
-    else{
-      this.currentMuseum = this.museums[currentMuseumIndex + 1]
-      return true
+    this.currentMuseum = this.museums[currentMuseumIndex + 1]
+    this.currentMuseumIsFirst = false;
+    if(this.currentMuseum.id === this.museums.slice(-1)[0].id){
+      this.currentMuseumIsLast = true;
     }
   }
 
   getPreviousMuseum(museum:Museum){
     var currentMuseumIndex = this.getMuseumIndex(museum);
-    if(currentMuseumIndex == 0){
-      return false
-    }
-   else{
-      this.currentMuseum = this.museums[currentMuseumIndex - 1]
-      return true
+    this.currentMuseum = this.museums[currentMuseumIndex - 1]
+    if(currentMuseumIndex - 1 === 0){
+      this.currentMuseumIsFirst = true;
     }
   }
 

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8">
-    <h2>{{ currentMuseum.nombre }}</h2>
-    <div [innerHTML]="currentMuseum.descripcion"></div>
+    <h1 id="museumInfo">{{ currentMuseum.nombre }}</h1>
+    <div [innerHTML]="currentMuseum.descripcion" id="museumInfo"></div>
   </div>
   <div class="col-md-4">
     <div class="card" id="contactCard">
@@ -12,7 +12,7 @@
         <a href="{{ currentMuseum.link }}" class="btn btn-primary">Visita su sitio web</a>
       </div>
     </div>
-    <a (click)="getNextMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el siguiente museo</a>
-    <a (click)="getPreviousMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el museo anterior</a>
+    <a *ngIf="!currentMuseumIsLast" (click)="getNextMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el siguiente museo</a>
+    <a *ngIf="!currentMuseumIsFirst" (click)="getPreviousMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Vea el museo anterior</a>
   </div>
 </div>
