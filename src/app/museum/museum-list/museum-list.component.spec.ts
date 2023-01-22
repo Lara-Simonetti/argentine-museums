@@ -52,5 +52,20 @@ describe('MuseumListComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have a list of museums', () => {
+    expect(component.museums.length).toBeGreaterThan(0);
+  });
+
+  it('should have 1 <h1> element', () => {
+    expect(debug.queryAll(By.css('h1'))).toHaveSize(1);
+  });
+
+  it('should have 3 <p> elements', () => {
+    expect(debug.queryAll(By.css('p'))).toHaveSize(3);
+  });
+
+  it('should have 2 <a> elements', () => {
+    expect(debug.queryAll(By.css('a'))).toHaveSize(2);
+  });
 
 });
