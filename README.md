@@ -7,4 +7,4 @@ These are some of the skills displayed in this project:
 * Extended HTML with Angular (structural directives, data binding, template statements)
 * HTML, CSS, and Bootstrap
 * HTTP requests to an API REST
-* Basic unit testing
+* Unit testing
