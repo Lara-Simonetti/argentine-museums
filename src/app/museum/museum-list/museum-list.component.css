@@ -1,0 +1,32 @@
+.btn-primary{
+  background-color: #748ddf;
+  color:#FFFFFF;
+  font-weight: bolder;
+  border:none;
+}
+
+.card{
+  background-color: #f1f4fe;
+}
+
+.btn:active:focus {
+  background-color:#233e96;
+}
+
+
+h1{
+  color:#233e96;
+}
+
+#museumButton{
+  margin-top: 5%;
+  width: 90%;
+}
+
+#contactCard{
+  width: 90%;
+}
+
+#museumInfo{
+  margin-left: 5%;
+}

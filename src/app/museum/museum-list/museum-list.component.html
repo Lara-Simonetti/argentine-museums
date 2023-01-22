@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1 id="museumInfo">{{ currentMuseum.nombre }}</h1>
+    <div [innerHTML]="currentMuseum.descripcion" id="museumInfo"></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card" id="contactCard">
+      <div class="card-body">
+        <p *ngIf="checkEmptyValue(currentMuseum.direccion), display: none"><strong>Dirección:</strong> {{ currentMuseum.direccion }}</p>
+        <p *ngIf="checkEmptyValue(currentMuseum.telefono)"><strong>Teléfono:</strong> {{ currentMuseum.telefono }}</p>
+        <p *ngIf="checkEmptyValue(currentMuseum.email)"><strong>Email:</strong> {{ currentMuseum.email }}</p>
+        <a href="{{ currentMuseum.link }}" class="btn btn-primary">Visita su sitio web</a>
+      </div>
+    </div>
+    <a *ngIf="!currentMuseumIsLast" (click)="getNextMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Mira el siguiente museo</a>
+    <a *ngIf="!currentMuseumIsFirst" (click)="getPreviousMuseum(currentMuseum)" class="btn btn-primary" id="museumButton">Mira el museo anterior</a>
+  </div>
+</div>
